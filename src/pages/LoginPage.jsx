@@ -25,13 +25,18 @@ function LoginPage() {
                 rememberMe
 
             });
-            if (rememberMe) {
-                localStorage.setItem("token",res.data.token);
-            }
-            else{
-                sessionStorage.setItem("token",res.data.token);
-            }
-            console.log(res.data);
+            
+  const accessToken = res.data?.data?.accessToken; // get token from correct path
+
+    if (accessToken) {
+      if (rememberMe) {
+        localStorage.setItem("token", accessToken);
+      } else {
+        sessionStorage.setItem("token", accessToken);
+      }
+    }
+    
+
             
             
             console.log(`Login Success : `,res.data);

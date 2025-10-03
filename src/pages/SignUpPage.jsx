@@ -18,7 +18,7 @@ function SignUpPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await instance.post('/auth/signup', formData);
+            const res = await instance.post('/auth/register', formData);
             console.log(res.data);
 
         } catch (error) {
@@ -89,6 +89,8 @@ function SignUpPage() {
                             type="password"
                             placeholder="Confirm your password"
                             name="confirmPassword"
+                            onChange={handleChange}
+        
                             value={formData.confirmPassword}
 
                             className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none"
